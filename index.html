@@ -76,6 +76,24 @@
             align-items: center;
         }
 
+        .about-section {
+            padding: 100px 0;
+            background: #f8f9fa;
+            text-align: center;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            display: none;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        .about-toggle {
+            cursor: pointer;
+        }
+
         /* LOGO: Uses a gradient clip so the text itself is colorful */
         .logo {
             font-size: 2rem;
@@ -484,6 +502,17 @@
         window.addEventListener('scroll', () => {
             const header = document.querySelector('header');
             header.style.boxShadow = window.scrollY > 50 ? '0 2px 20px rgba(0,0,0,0.1)' : 'none';
+        });
+        // Toggle About section visibility
+        const aboutToggle = document.querySelector('.about-toggle');
+        const aboutContent = document.querySelector('.about-content');
+
+        aboutToggle.addEventListener('click', () => {
+            if (aboutContent.style.display === "none" || aboutContent.style.display === "") {
+                aboutContent.style.display = "block";
+            } else {
+                aboutContent.style.display = "none";
+            }
         });
     </script>
     <!-- FORM MODAL -->
