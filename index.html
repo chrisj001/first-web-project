@@ -383,8 +383,10 @@
                         drag-and-drop platform.</p>
                     <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
                         <a href="#" class="cta-button">Start Building Free</a>
-                        <a href="#" class="cta-button" id="openVideo"
-                            style="background: transparent; border: 2px solid white;">Watch Demo</a>
+                        <button class="cta-button" id="openVideo"
+                            style="background: transparent; border: 2px solid white;">
+                            Watch Demo
+                        </button>
                     </div>
                 </div>
             </div>
@@ -489,7 +491,7 @@
         });
 
         // 2. SMOOTH SCROLLING: Intercepts link clicks to scroll gracefully instead of jumping
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        document.querySelectorAll('a[href^="#"]:not(#openVideo)').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 const href = this.getAttribute('href');
 
