@@ -329,6 +329,31 @@
                 font-size: 0.9rem;
             }
         }
+
+        .video-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+
+        .video-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 800px;
+            width: 90%;
+        }
+
+        .video-container video {
+            width: 100%;
+        }
     </style>
 </head>
 
@@ -525,6 +550,26 @@
             aboutContent.classList.toggle('open');
         });
         // Video Modal Functionality
+        const videoModal = document.getElementById('videoModal');
+        const openVideo = document.getElementById('openVideo');
+        const closeVideo = document.querySelector('.close-video');
+        const demoVideo = document.getElementById('demoVideo');
+
+        if (openVideo && videoModal) {
+            openVideo.addEventListener('click', (e) => {
+                e.preventDefault();
+                videoModal.style.display = 'flex';
+            });
+        }
+
+        if (closeVideo) {
+            closeVideo.addEventListener('click', () => {
+                videoModal.style.display = 'none';
+                demoVideo.pause();
+                demoVideo.currentTime = 0;
+            });
+        }
+
 
     </script>
     <!-- FORM MODAL -->
